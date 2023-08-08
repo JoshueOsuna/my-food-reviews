@@ -1,0 +1,19 @@
+/* app/javascript/components/Rating/Rating.css */
+.star-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #f8ce0b;
+}
+.star-wrapper::before,
+.stars::before {
+  font-family: "FontAwesome";
+  content: "\f005" " \f005" " \f005" " \f005" " \f005";
+}
+/*# sourceMappingURL=assets/application.css.map */

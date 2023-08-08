@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../javascript/components/Rating/Rating.css"],
+  "sourcesContent": [".star-wrapper {\r\n  position: relative;\r\n  display: inline-block;\r\n}\r\n\r\n.stars {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  color: #f8ce0b;\r\n}\r\n\r\n.star-wrapper::before, .stars::before {\r\n  font-family: 'FontAwesome';\r\n  content: \"\\f005 \" \" \\f005 \" \" \\f005 \" \" \\f005 \" \" \\f005\";\r\n}\r\n"],
+  "mappings": ";AAAA,CAAC;AACC,YAAU;AACV,WAAS;AACX;AAEA,CAAC;AACC,YAAU;AACV,OAAK;AACL,QAAM;AACN,YAAU;AACV,eAAa;AACb,SAAO;AACT;AAEA,CAdC,YAcY;AAAU,CATtB,KAS4B;AAC3B,eAAa;AACb,WAAS,QAAS,SAAU,SAAU,SAAU;AAClD;",
+  "names": []
+}
