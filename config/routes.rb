@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   namespace :api do
     namespace :v1 do
-      resources :restaurants, param: :slug
+      resources :restaurants, param: :slug, only: %i[index show]
       resources :reviews, only: %i[create destroy update]
     end
   end

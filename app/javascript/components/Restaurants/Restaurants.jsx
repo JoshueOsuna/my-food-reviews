@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 import Restaurant from "./Restaurant";
 import styled from "styled-components";
+import Navbar from "../Navbar/navbar";
 
 const Home = styled.div`
   text-align: center;
@@ -45,6 +46,7 @@ const Restaurants = () => {
 
   return (
     <Home>
+      <Navbar />
       <Header>
         <h1>Restaurants</h1>
         <Subheader>

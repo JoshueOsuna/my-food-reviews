@@ -5,6 +5,7 @@ import Header from "./Header";
 import styled from "styled-components";
 import ReviewForm from "./ReviewForm";
 import Review from "./Review";
+import Navbar from "../Navbar/navbar";
 
 const Wrapper = styled.div`
   margin-left: auto;
@@ -36,7 +37,6 @@ const Restaurant = () => {
   const slug = useParams().slug;
 
   useEffect(() => {
-    console.log('ONE TIME ONLY')
     const url = `/api/v1/restaurants/${slug}`;
 
     axios.get(url)
@@ -49,7 +49,6 @@ const Restaurant = () => {
   }, []);
 
   useEffect(() => {
-    console.log('REVIEWS CHANGED')
     const url = `/api/v1/restaurants/${slug}`;
 
     axios.get(url)
@@ -133,31 +132,35 @@ const Restaurant = () => {
   }
 
   return (
-    <Wrapper>
-      {loaded && (
-        <Fragment>
-          <Column>
-            <Main>
-              <Header
+    <Fragment>
+      <Navbar />
+      <Wrapper>
+        {loaded && (
+          <Fragment>
+            <Column>
+              <Main>
+                <Header
+                  attributes={restaurant.data.attributes}
+                  reviews={restaurant.included}
+                />
+                {reviews_list}
+              </Main>
+            </Column>
+            <Column>
+              <ReviewForm
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+                setRating={setRating}
                 attributes={restaurant.data.attributes}
-                reviews={restaurant.included}
+                review={review}
               />
-              {reviews_list}
-            </Main>
-          </Column>
-          <Column>
-            <ReviewForm
-              handleChange={handleChange}
-              handleSubmit={handleSubmit}
-              setRating={setRating}
-              attributes={restaurant.data.attributes}
-              review={review}
-            />
-          </Column>
-        </Fragment>
-      )}
-    </Wrapper>
+            </Column>
+          </Fragment>
+        )}
+      </Wrapper>
+    </Fragment>
   );
+  
 };
 
 export default Restaurant;

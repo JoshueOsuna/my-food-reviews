@@ -2382,9 +2382,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React15 = require_react();
+          var React16 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React15.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React16.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -3989,7 +3989,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React15.Children.forEach(props.children, function(child) {
+                  React16.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -12436,7 +12436,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React15.Component().refs;
+          var emptyRefsObject = new React16.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -23545,11 +23545,11 @@
   });
 
   // app/javascript/entrypoints/application.jsx
-  var import_react13 = __toESM(require_react());
+  var import_react14 = __toESM(require_react());
   var import_client = __toESM(require_client());
 
   // app/javascript/components/App.jsx
-  var import_react12 = __toESM(require_react());
+  var import_react13 = __toESM(require_react());
 
   // node_modules/react-router-dom/dist/index.js
   var React2 = __toESM(require_react());
@@ -27498,7 +27498,7 @@
   }
 
   // app/javascript/components/Restaurants/Restaurants.jsx
-  var import_react4 = __toESM(require_react());
+  var import_react5 = __toESM(require_react());
 
   // node_modules/axios/lib/helpers/bind.js
   function bind(fn, thisArg) {
@@ -30951,6 +30951,14 @@
   };
   var Restaurant_default = Restaurant;
 
+  // app/javascript/components/Navbar/navbar.jsx
+  var import_react4 = __toESM(require_react());
+  var Navbar = () => {
+    const imageUrl = "https://media.istockphoto.com/id/1038356020/vector/restaurant-icon.jpg?s=612x612&w=0&k=20&c=Tk_v3JuJA4lz_8ZRJi78xS4p75Idqt97uEtYJciVtFI=";
+    return /* @__PURE__ */ import_react4.default.createElement("nav", { className: "nav" }, /* @__PURE__ */ import_react4.default.createElement("ul", null, /* @__PURE__ */ import_react4.default.createElement("li", null, /* @__PURE__ */ import_react4.default.createElement(Link, { to: "/" }, /* @__PURE__ */ import_react4.default.createElement("img", { src: imageUrl, alt: "Home" }))), /* @__PURE__ */ import_react4.default.createElement("li", { className: "site-title" }, "My Food Reviews")));
+  };
+  var navbar_default = Navbar;
+
   // app/javascript/components/Restaurants/Restaurants.jsx
   var Home = st.div`
   text-align: center;
@@ -30976,24 +30984,24 @@
   padding: 20px;
 `;
   var Restaurants = () => {
-    const [restaurants, setRestaurants] = (0, import_react4.useState)([]);
-    (0, import_react4.useEffect)(() => {
+    const [restaurants, setRestaurants] = (0, import_react5.useState)([]);
+    (0, import_react5.useEffect)(() => {
       axios_default.get("/api/v1/restaurants.json").then((resp) => {
         setRestaurants(resp.data.data);
       }).catch((resp) => console.log(resp));
     }, [restaurants.length]);
     const grid = restaurants.map((item) => {
-      return /* @__PURE__ */ import_react4.default.createElement(Restaurant_default, { key: item.attributes.name, attributes: item.attributes });
+      return /* @__PURE__ */ import_react5.default.createElement(Restaurant_default, { key: item.attributes.name, attributes: item.attributes });
     });
-    return /* @__PURE__ */ import_react4.default.createElement(Home, null, /* @__PURE__ */ import_react4.default.createElement(Header, null, /* @__PURE__ */ import_react4.default.createElement("h1", null, "Restaurants"), /* @__PURE__ */ import_react4.default.createElement(Subheader, null, "Find your favorite restaurant and leave a review!")), /* @__PURE__ */ import_react4.default.createElement(Grid, null, grid));
+    return /* @__PURE__ */ import_react5.default.createElement(Home, null, /* @__PURE__ */ import_react5.default.createElement(navbar_default, null), /* @__PURE__ */ import_react5.default.createElement(Header, null, /* @__PURE__ */ import_react5.default.createElement("h1", null, "Restaurants"), /* @__PURE__ */ import_react5.default.createElement(Subheader, null, "Find your favorite restaurant and leave a review!")), /* @__PURE__ */ import_react5.default.createElement(Grid, null, grid));
   };
   var Restaurants_default = Restaurants;
 
   // app/javascript/components/Restaurant/Restaurant.jsx
-  var import_react11 = __toESM(require_react());
+  var import_react12 = __toESM(require_react());
 
   // app/javascript/components/Restaurant/Header.jsx
-  var import_react5 = __toESM(require_react());
+  var import_react6 = __toESM(require_react());
   var Wrapper = st.div`
   padding: 50px 100px 50px 0;
   font-size: 30px;
@@ -31016,25 +31024,25 @@
   var Header2 = (props) => {
     const { name, image_url, average_score } = props.attributes;
     const total = props.reviews.length;
-    return /* @__PURE__ */ import_react5.default.createElement(Wrapper, null, /* @__PURE__ */ import_react5.default.createElement("h1", null, /* @__PURE__ */ import_react5.default.createElement("img", { src: image_url, alt: name, width: "50" }), name), /* @__PURE__ */ import_react5.default.createElement(TotalReviews, null, total, " User Reviews"), /* @__PURE__ */ import_react5.default.createElement("div", { className: "starRating" }), /* @__PURE__ */ import_react5.default.createElement(TotalOutOf, null, average_score, " out of 5"));
+    return /* @__PURE__ */ import_react6.default.createElement(Wrapper, null, /* @__PURE__ */ import_react6.default.createElement("h1", null, /* @__PURE__ */ import_react6.default.createElement("img", { src: image_url, alt: name, width: "50" }), name), /* @__PURE__ */ import_react6.default.createElement(TotalReviews, null, total, " User Reviews"), /* @__PURE__ */ import_react6.default.createElement("div", { className: "starRating" }), /* @__PURE__ */ import_react6.default.createElement(TotalOutOf, null, average_score, " out of 5"));
   };
   var Header_default = Header2;
 
   // app/javascript/components/Restaurant/ReviewForm.jsx
-  var import_react9 = __toESM(require_react());
+  var import_react10 = __toESM(require_react());
 
   // app/javascript/components/Restaurant/Stars/Gray.jsx
-  var import_react6 = __toESM(require_react());
+  var import_react7 = __toESM(require_react());
   var Gray = "%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23e3e3e3' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e";
   var Gray_default = Gray;
 
   // app/javascript/components/Restaurant/Stars/Hover.jsx
-  var import_react7 = __toESM(require_react());
+  var import_react8 = __toESM(require_react());
   var Hover = "%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23d8b11e' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e";
   var Hover_default = Hover;
 
   // app/javascript/components/Restaurant/Stars/Selected.jsx
-  var import_react8 = __toESM(require_react());
+  var import_react9 = __toESM(require_react());
   var Selected = "%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23fcd93a' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e";
   var Selected_default = Selected;
 
@@ -31138,7 +31146,7 @@
 `;
   var ReviewForm = (props) => {
     const ratingOptions = [5, 4, 3, 2, 1].map((score, index) => {
-      return /* @__PURE__ */ import_react9.default.createElement(import_react9.Fragment, { key: index }, /* @__PURE__ */ import_react9.default.createElement(
+      return /* @__PURE__ */ import_react10.default.createElement(import_react10.Fragment, { key: index }, /* @__PURE__ */ import_react10.default.createElement(
         "input",
         {
           type: "radio",
@@ -31148,9 +31156,9 @@
           onChange: () => console.log("selected:", score),
           id: `rating-${score}`
         }
-      ), /* @__PURE__ */ import_react9.default.createElement("label", { onClick: props.setRating.bind(void 0, score) }));
+      ), /* @__PURE__ */ import_react10.default.createElement("label", { onClick: props.setRating.bind(void 0, score) }));
     });
-    return /* @__PURE__ */ import_react9.default.createElement(Wrapper2, null, /* @__PURE__ */ import_react9.default.createElement("form", { onSubmit: props.handleSubmit }, /* @__PURE__ */ import_react9.default.createElement(Headline, null, "Have an experience with ", props.attributes.name, "? Share your review!"), /* @__PURE__ */ import_react9.default.createElement(Field, null, /* @__PURE__ */ import_react9.default.createElement(
+    return /* @__PURE__ */ import_react10.default.createElement(Wrapper2, null, /* @__PURE__ */ import_react10.default.createElement("form", { onSubmit: props.handleSubmit }, /* @__PURE__ */ import_react10.default.createElement(Headline, null, "Have an experience with ", props.attributes.name, "? Share your review!"), /* @__PURE__ */ import_react10.default.createElement(Field, null, /* @__PURE__ */ import_react10.default.createElement(
       "input",
       {
         onChange: props.handleChange,
@@ -31159,7 +31167,7 @@
         name: "title",
         placeholder: "Review Title"
       }
-    )), /* @__PURE__ */ import_react9.default.createElement(Field, null, /* @__PURE__ */ import_react9.default.createElement(
+    )), /* @__PURE__ */ import_react10.default.createElement(Field, null, /* @__PURE__ */ import_react10.default.createElement(
       "input",
       {
         onChange: props.handleChange,
@@ -31168,12 +31176,12 @@
         name: "description",
         placeholder: "Review Description"
       }
-    )), /* @__PURE__ */ import_react9.default.createElement(Field, null, /* @__PURE__ */ import_react9.default.createElement(RatingContainer, null, /* @__PURE__ */ import_react9.default.createElement(RatingTitle, null, "Rate This Restaurant"), /* @__PURE__ */ import_react9.default.createElement(RatingBox, null, ratingOptions))), /* @__PURE__ */ import_react9.default.createElement(SubmitButton, null, "Submit Your Review")));
+    )), /* @__PURE__ */ import_react10.default.createElement(Field, null, /* @__PURE__ */ import_react10.default.createElement(RatingContainer, null, /* @__PURE__ */ import_react10.default.createElement(RatingTitle, null, "Rate This Restaurant"), /* @__PURE__ */ import_react10.default.createElement(RatingBox, null, ratingOptions))), /* @__PURE__ */ import_react10.default.createElement(SubmitButton, null, "Submit Your Review")));
   };
   var ReviewForm_default = ReviewForm;
 
   // app/javascript/components/Restaurant/Review.jsx
-  var import_react10 = __toESM(require_react());
+  var import_react11 = __toESM(require_react());
   var Card2 = st.div`
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 4px;
@@ -31239,8 +31247,8 @@
   }
 `;
   var Review = (props) => {
-    const [review, setReview] = (0, import_react10.useState)(props.attributes);
-    const [isEditing, setIsEditing] = (0, import_react10.useState)(false);
+    const [review, setReview] = (0, import_react11.useState)(props.attributes);
+    const [isEditing, setIsEditing] = (0, import_react11.useState)(false);
     const handleEdit = (e) => {
       e.preventDefault();
       setIsEditing(true);
@@ -31259,7 +31267,7 @@
       setIsEditing(false);
     };
     const ratingOptions = [5, 4, 3, 2, 1].map((score, index) => {
-      return /* @__PURE__ */ import_react10.default.createElement(import_react10.Fragment, { key: index }, /* @__PURE__ */ import_react10.default.createElement(
+      return /* @__PURE__ */ import_react11.default.createElement(import_react11.Fragment, { key: index }, /* @__PURE__ */ import_react11.default.createElement(
         "input",
         {
           type: "radio",
@@ -31269,9 +31277,9 @@
           onChange: () => console.log("selected:", score),
           id: `rating-${score}`
         }
-      ), /* @__PURE__ */ import_react10.default.createElement("label", { onClick: setRating.bind(void 0, score) }));
+      ), /* @__PURE__ */ import_react11.default.createElement("label", { onClick: setRating.bind(void 0, score) }));
     });
-    return /* @__PURE__ */ import_react10.default.createElement(Card2, null, !isEditing ? /* @__PURE__ */ import_react10.default.createElement("div", null, /* @__PURE__ */ import_react10.default.createElement("div", { className: "rating-container" }, /* @__PURE__ */ import_react10.default.createElement(Rating_default, { score: review.score })), /* @__PURE__ */ import_react10.default.createElement(Title, null, review.title), /* @__PURE__ */ import_react10.default.createElement(Description, null, review.description), /* @__PURE__ */ import_react10.default.createElement(Options, null, /* @__PURE__ */ import_react10.default.createElement(Option, { onClick: handleEdit }, /* @__PURE__ */ import_react10.default.createElement("i", { className: "fa fa-edit" })), /* @__PURE__ */ import_react10.default.createElement(Option, { onClick: props.handleDestroy.bind(void 0, props.id) }, /* @__PURE__ */ import_react10.default.createElement("i", { className: "fa fa-trash" })))) : /* @__PURE__ */ import_react10.default.createElement("form", { onSubmit: handleSubmit }, /* @__PURE__ */ import_react10.default.createElement(RatingBox2, null, ratingOptions), /* @__PURE__ */ import_react10.default.createElement(Title, null, /* @__PURE__ */ import_react10.default.createElement(
+    return /* @__PURE__ */ import_react11.default.createElement(Card2, null, !isEditing ? /* @__PURE__ */ import_react11.default.createElement("div", null, /* @__PURE__ */ import_react11.default.createElement("div", { className: "rating-container" }, /* @__PURE__ */ import_react11.default.createElement(Rating_default, { score: review.score })), /* @__PURE__ */ import_react11.default.createElement(Title, null, review.title), /* @__PURE__ */ import_react11.default.createElement(Description, null, review.description), /* @__PURE__ */ import_react11.default.createElement(Options, null, /* @__PURE__ */ import_react11.default.createElement(Option, { onClick: handleEdit }, /* @__PURE__ */ import_react11.default.createElement("i", { className: "fa fa-edit" })), /* @__PURE__ */ import_react11.default.createElement(Option, { onClick: props.handleDestroy.bind(void 0, props.id) }, /* @__PURE__ */ import_react11.default.createElement("i", { className: "fa fa-trash" })))) : /* @__PURE__ */ import_react11.default.createElement("form", { onSubmit: handleSubmit }, /* @__PURE__ */ import_react11.default.createElement(RatingBox2, null, ratingOptions), /* @__PURE__ */ import_react11.default.createElement(Title, null, /* @__PURE__ */ import_react11.default.createElement(
       "input",
       {
         onChange: handleChange,
@@ -31280,7 +31288,7 @@
         name: "title",
         placeholder: "Review Title"
       }
-    )), /* @__PURE__ */ import_react10.default.createElement(Description, null, /* @__PURE__ */ import_react10.default.createElement(
+    )), /* @__PURE__ */ import_react11.default.createElement(Description, null, /* @__PURE__ */ import_react11.default.createElement(
       "input",
       {
         onChange: handleChange,
@@ -31289,7 +31297,7 @@
         name: "description",
         placeholder: "Review Description"
       }
-    )), /* @__PURE__ */ import_react10.default.createElement(Options, null, /* @__PURE__ */ import_react10.default.createElement(Option, { as: "button", type: "submit" }, /* @__PURE__ */ import_react10.default.createElement("i", { className: "fa fa-save" })))));
+    )), /* @__PURE__ */ import_react11.default.createElement(Options, null, /* @__PURE__ */ import_react11.default.createElement(Option, { as: "button", type: "submit" }, /* @__PURE__ */ import_react11.default.createElement("i", { className: "fa fa-save" })))));
   };
   var Review_default = Review;
 
@@ -31312,17 +31320,16 @@
   padding-left: 50px;
 `;
   var Restaurant2 = () => {
-    const [restaurant, setRestaurant] = (0, import_react11.useState)({});
-    const [reviews, setReviews] = (0, import_react11.useState)([]);
-    const [review, setReview] = (0, import_react11.useState)({
+    const [restaurant, setRestaurant] = (0, import_react12.useState)({});
+    const [reviews, setReviews] = (0, import_react12.useState)([]);
+    const [review, setReview] = (0, import_react12.useState)({
       title: "",
       description: "",
       score: 0
     });
-    const [loaded, setLoaded] = (0, import_react11.useState)(false);
+    const [loaded, setLoaded] = (0, import_react12.useState)(false);
     const slug = useParams().slug;
-    (0, import_react11.useEffect)(() => {
-      console.log("ONE TIME ONLY");
+    (0, import_react12.useEffect)(() => {
       const url = `/api/v1/restaurants/${slug}`;
       axios_default.get(url).then((response) => {
         setRestaurant(response.data);
@@ -31330,8 +31337,7 @@
         setLoaded(true);
       }).catch((response) => console.log(response));
     }, []);
-    (0, import_react11.useEffect)(() => {
-      console.log("REVIEWS CHANGED");
+    (0, import_react12.useEffect)(() => {
       const url = `/api/v1/restaurants/${slug}`;
       axios_default.get(url).then((response) => {
         setRestaurant(response.data);
@@ -31382,7 +31388,7 @@
     };
     if (loaded) {
       reviews_list = reviews.map((item, index) => {
-        return /* @__PURE__ */ import_react11.default.createElement(
+        return /* @__PURE__ */ import_react12.default.createElement(
           Review_default,
           {
             key: item.id,
@@ -31394,13 +31400,13 @@
         );
       });
     }
-    return /* @__PURE__ */ import_react11.default.createElement(Wrapper3, null, loaded && /* @__PURE__ */ import_react11.default.createElement(import_react11.Fragment, null, /* @__PURE__ */ import_react11.default.createElement(Column, null, /* @__PURE__ */ import_react11.default.createElement(Main, null, /* @__PURE__ */ import_react11.default.createElement(
+    return /* @__PURE__ */ import_react12.default.createElement(import_react12.Fragment, null, /* @__PURE__ */ import_react12.default.createElement(navbar_default, null), /* @__PURE__ */ import_react12.default.createElement(Wrapper3, null, loaded && /* @__PURE__ */ import_react12.default.createElement(import_react12.Fragment, null, /* @__PURE__ */ import_react12.default.createElement(Column, null, /* @__PURE__ */ import_react12.default.createElement(Main, null, /* @__PURE__ */ import_react12.default.createElement(
       Header_default,
       {
         attributes: restaurant.data.attributes,
         reviews: restaurant.included
       }
-    ), reviews_list)), /* @__PURE__ */ import_react11.default.createElement(Column, null, /* @__PURE__ */ import_react11.default.createElement(
+    ), reviews_list)), /* @__PURE__ */ import_react12.default.createElement(Column, null, /* @__PURE__ */ import_react12.default.createElement(
       ReviewForm_default,
       {
         handleChange,
@@ -31409,13 +31415,13 @@
         attributes: restaurant.data.attributes,
         review
       }
-    ))));
+    )))));
   };
   var Restaurant_default2 = Restaurant2;
 
   // app/javascript/components/App.jsx
   var App = () => {
-    return /* @__PURE__ */ import_react12.default.createElement(Routes, null, /* @__PURE__ */ import_react12.default.createElement(Route, { path: "/", element: /* @__PURE__ */ import_react12.default.createElement(Restaurants_default, null) }), /* @__PURE__ */ import_react12.default.createElement(Route, { path: "/restaurants/:slug", element: /* @__PURE__ */ import_react12.default.createElement(Restaurant_default2, null) }));
+    return /* @__PURE__ */ import_react13.default.createElement(Routes, null, /* @__PURE__ */ import_react13.default.createElement(Route, { path: "/", element: /* @__PURE__ */ import_react13.default.createElement(Restaurants_default, null) }), /* @__PURE__ */ import_react13.default.createElement(Route, { path: "/restaurants/:slug", element: /* @__PURE__ */ import_react13.default.createElement(Restaurant_default2, null) }));
   };
   var App_default = App;
 
@@ -31426,12 +31432,12 @@
   var router = createBrowserRouter([
     {
       path: "*",
-      element: /* @__PURE__ */ import_react13.default.createElement(App_default, null),
-      errorElement: /* @__PURE__ */ import_react13.default.createElement("div", null, "Not Found")
+      element: /* @__PURE__ */ import_react14.default.createElement(App_default, null),
+      errorElement: /* @__PURE__ */ import_react14.default.createElement("div", null, "Not Found")
     }
   ]);
   root.render(
-    /* @__PURE__ */ import_react13.default.createElement(RouterProvider, { router })
+    /* @__PURE__ */ import_react14.default.createElement(RouterProvider, { router })
   );
 })();
 /*! Bundled license information:
